@@ -39,6 +39,11 @@ const Hackathon = sequelize.define('Hackathon', {
   technology_stack: {
     type: DataTypes.STRING,
   },
+  registered_participants: {
+    type: DataTypes.INTEGER,
+    allowNull: false,
+    defaultValue: 0,
+  },
 });
 
 Hackathon.belongsTo(Company, { foreignKey: 'company_id' });

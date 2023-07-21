@@ -22,10 +22,8 @@ const Participant = sequelize.define('Participant', {
 });
 
 // Associations
-User.hasMany(Participant);
-Participant.belongsTo(User);
+Participant.belongsTo(User, { foreignKey: 'user_id' });
 
-Hackathon.hasMany(Participant);
-Participant.belongsTo(Hackathon);
+Participant.belongsTo(Hackathon, { foreignKey: 'hackathon_id' });
 
 module.exports = Participant;

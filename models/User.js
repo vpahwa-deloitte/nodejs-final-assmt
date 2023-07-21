@@ -20,6 +20,16 @@ const User = sequelize.define('User', {
     type: DataTypes.STRING,
     allowNull: false,
   },
+  experience_level: {
+    type: DataTypes.STRING,
+    allowNull: false,
+  },
+  technology_stack: {
+    type: DataTypes.STRING,
+  },
+  business_unit: {
+    type: DataTypes.STRING,
+  },
 });
 
 module.exports = User;
