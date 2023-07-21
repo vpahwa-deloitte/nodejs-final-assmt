@@ -1,6 +1,7 @@
 const Participant = require('../models/Participant');
 const Hackathon = require('../models/Hackathon');
 const User = require('../models/User')
+const { Op } = require('sequelize');
 
 // Get all participants of a specific hackathon
 const getAllParticipants = async (req, res) => {
@@ -95,9 +96,51 @@ const deleteParticipant = async (req, res) => {
   }
 };
 
+// Get filtered participants for a hackathon
+const getFilteredParticipants = async (req, res) => {
+    const hackathonId = req.params.hackathonId;
+    const { experience_level, technology_stack, business_unit } = req.query;
+  
+    try {
+      const hackathon = await Hackathon.findByPk(hackathonId);
+      if (!hackathon) {
+        return res.status(404).json({ message: 'Hackathon not found' });
+      }
+  
+      const filterConditions = {
+        hackathon_id: hackathonId,
+      };
+  
+      if (experience_level) {
+        filterConditions.experience_level = experience_level;
+      }
+  
+      if (technology_stack) {
+        filterConditions.technology_stack = technology_stack;
+      }
+  
+      if (business_unit) {
+        filterConditions.business_unit = business_unit;
+      }
+
+      const participants = await Participant.findAll({
+        where: filterConditions,
+      });
+
+      if (participants.length === 0) {
+        return res.json({ message: 'No participants found for the given filters', data: participants });
+      }
+  
+      res.json({ message: 'Filtered participants found', data: participants });
+    } catch (error) {
+      res.status(500).json({ message: 'Server error' });
+    }
+  };
+
 module.exports = {
   getAllParticipants,
   createParticipant,
   updateParticipant,
   deleteParticipant,
+  getFilteredParticipants
 };

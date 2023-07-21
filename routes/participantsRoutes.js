@@ -9,4 +9,6 @@ router.post('/:hackathonId', authenticateJWT, participantsController.createParti
 router.patch('/:id', authenticateJWT, participantsController.updateParticipant);
 router.delete('/:id', authenticateJWT, participantsController.deleteParticipant);
 
+router.get('/:hackathonId/search', authenticateJWT, participantsController.getFilteredParticipants);
+
 module.exports = router;
