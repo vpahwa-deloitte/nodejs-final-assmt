@@ -15,12 +15,12 @@
 
 **Hackathon Routes**
 
-- POST /hackathons: Create a new hackathon  
-- GET /hackathons: Get all hackathons.  
-- GET /hackathons/search: Search hackathons by name and technology_stack by passing q as query param  
-- PATCH /hackathons/:id : Update a hackathon by ID   
-- DELETE /hackathons/:id : Delete a hackathon by ID   
-- POST /hackathons/:id/register: Register a hackathon  
+- GET /hackathons : Get all hackathons.
+- POST /hackathons : Create a new hackathon.
+- PATCH /hackathons/:id : Update a hackathon by ID.
+- DELETE /hackathons/:id : Delete a hackathon by ID.
+- GET /hackathons/search : Search hackathons by name or technology stack.
+- POST /hackathons/:hackathonId/register: Register a user for a hackathon. 
 
 **Participant Routes**
 
