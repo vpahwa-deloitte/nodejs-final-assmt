@@ -3,6 +3,7 @@ const bodyParser = require('body-parser');
 const userRoutes = require('./routes/userRoutes');
 const sequelize = require('./config/database');
 const companyRoutes = require('./routes/companyRoutes');
+const hackathonRoutes = require('./routes/hackathonRoutes');
 
 (async () => {
   try {
@@ -19,6 +20,7 @@ app.use(bodyParser.json());
 
 app.use('/users', userRoutes);
 app.use('/companies', companyRoutes);
+app.use('/hackathons', hackathonRoutes);
 
 const PORT = 3000;
 app.listen(PORT, () => {

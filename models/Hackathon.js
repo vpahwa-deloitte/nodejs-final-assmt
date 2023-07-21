@@ -41,8 +41,6 @@ const Hackathon = sequelize.define('Hackathon', {
   },
 });
 
-// Associations
-Company.hasMany(Hackathon);
-Hackathon.belongsTo(Company);
+Hackathon.belongsTo(Company, { foreignKey: 'company_id' });
 
 module.exports = Hackathon;
