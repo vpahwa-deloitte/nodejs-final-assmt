@@ -131,11 +131,10 @@ const searchHackathons = async (req, res) => {
 
 // Register a user for a hackathon
 const registerForHackathon = async (req, res) => {
-    const userId = req.user.id; // Assuming you have the authenticated user ID from the JWT token
+    const userId = req.user.id;
     const hackathonId = req.params.hackathonId;
   
     try {
-      // Check if the hackathon exists and is open for registration
       const hackathon = await Hackathon.findByPk(hackathonId);
       if (!hackathon || !hackathon.registration_open) {
         return res.status(404).json({ message: 'Hackathon not found or registration closed' });
