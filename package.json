@@ -1,0 +1,29 @@
+{
+  "name": "nodejs-final-assmt",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vpahwa-deloitte/nodejs-final-assmt.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vpahwa-deloitte/nodejs-final-assmt/issues"
+  },
+  "homepage": "https://github.com/vpahwa-deloitte/nodejs-final-assmt#readme",
+  "dependencies": {
+    "bcrypt": "^5.1.0",
+    "jsonwebtoken": "^9.0.1",
+    "pg": "^8.11.1",
+    "sequelize": "^6.32.1"
+  },
+  "devDependencies": {
+    "express": "^4.18.2"
+  }
+}
