@@ -1,3 +1,7 @@
+## Deployed URL (on Render)
+
+https://hash-a-thon.onrender.com
+
 ## Endpoints
 
 **User Routes**
