@@ -28,7 +28,7 @@ https://hash-a-thon.onrender.com
 
 **Participant Routes**
 
-- ```POST /participants/:hackathonId```: Register for a hackathon.
+- ```POST /participants/:hackathonId```: Create a new participant for a hackathon.
 - ```GET /participants/:hackathonId```: Get all participants for a hackathon.
 - ```PATCH /participants/:id```: Update a participant by ID.
 - ```DELETE /participants/:id```: Delete a participant by ID.
