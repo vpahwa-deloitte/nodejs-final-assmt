@@ -7,6 +7,18 @@ const signUp = async (req, res) => {
   const { full_name, email, password, experience_level, technology_stack, business_unit } = req.body;
 
   try {
+    // validate password
+    const minLength = 8;
+    const hasLowerCase = /[a-z]/.test(password);
+    const hasUpperCase = /[A-Z]/.test(password);
+    const hasDigit = /\d/.test(password);
+
+    if (password.length < minLength || !hasLowerCase || !hasUpperCase || !hasDigit) {
+      return res.status(400).json({
+        message: "Password must be at least 8 characters long and contain at least one uppercase letter, one lowercase letter, and one digit.",
+      });
+    }
+
     const existingUser = await User.findOne({ where: { email } });
     if (existingUser) {
       return res.status(400).json({ message: "User already exists" });
